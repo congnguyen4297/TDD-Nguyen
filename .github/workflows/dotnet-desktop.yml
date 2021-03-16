@@ -45,7 +45,6 @@ on:
     branches: [ main ]
 
 jobs:
-
   build:
 
     strategy:
@@ -114,9 +113,8 @@ jobs:
         name: MSIX Package
 
     tests:
-      name: Unit Testing
+    - name: Unit Testing
       runs-on: windows-latest
       steps:
-        - uses: actions/checkout@v2.1.0
-        - run: dotnet test
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
+        uses: actions/checkout@v2.1.0
+        run: dotnet test
