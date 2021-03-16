@@ -15,7 +15,6 @@ namespace KataUnitTest
             var expectedResult = 0;
             //When
             var result = Calculator.Calculate(inputNumber);
-
             //Then
             Assert.AreEqual(expectedResult, result);
         }
