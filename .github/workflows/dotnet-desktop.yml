@@ -112,9 +112,9 @@ jobs:
       with:
         name: MSIX Package
 
-    tests:
-    - name: Unit Testing
-      runs-on: windows-latest
-      steps:
-        uses: actions/checkout@v2.1.0
-        run: dotnet test
+  tests:
+  - name: Unit Testing
+    runs-on: windows-latest
+    steps:
+      uses: actions/checkout@v2.1.0
+      run: dotnet test
