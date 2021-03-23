@@ -120,5 +120,18 @@ namespace KataUnitTest
             //Then
             Assert.AreEqual(expectedResult, result);
         }
+
+        [TestMethod]
+        public void TestSquareBracketDelim()
+        {
+            //Given
+            var inputNumber = "5[\n,]7[,]12";
+            int expectedResult = 24;
+            //When
+            var result = Calculator.Calculate(inputNumber);
+
+            //Then
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }

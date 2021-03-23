@@ -13,8 +13,7 @@ namespace Kata
             if (input == "")
                 return 0;
 
-            input = input.TrimStart('#');
-
+            input = input.TrimStart('#').ReplaceBracketDelim();
             var singleNumber = GetSingleNumber(input);
             if (singleNumber != null)
                 return singleNumber.Value;
@@ -35,6 +34,30 @@ namespace Kata
                 return threeNumbersSum.Value;
 
             return int.MinValue;
+        }
+
+        private static string ReplaceBracketDelim(this string str)
+        {
+            var strBuilder = new StringBuilder();
+            var flag = true;
+            for (int i = 0; i < str.Length; i++)
+            {
+                var c = str[i];
+                if (!flag && c != ']') continue;
+                if (c == '[')
+                {
+                    flag = false;
+                    continue;
+                }
+                else if (c == ']')
+                {
+                    flag = true;
+                    strBuilder.Append(',');
+                    continue;
+                }
+                strBuilder.Append(c);
+            }
+            return strBuilder.ToString();
         }
 
         private static int? GetSingleNumber(string input)
